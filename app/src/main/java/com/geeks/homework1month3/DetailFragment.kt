@@ -9,7 +9,7 @@ import android.widget.ImageView
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.geeks.homework1month3.databinding.FragmentDetailBinding
-import kotlinx.serialization.Serializable
+import com.geeks.homework1month3.DetailFragmentArgs
 
 
 class DetailFragment : Fragment() {

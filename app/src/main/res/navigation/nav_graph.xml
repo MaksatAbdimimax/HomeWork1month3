@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/onBordFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -24,6 +24,13 @@
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="model"
-            app:argType="com.geeks.homework1month3.SerialModel" />
+            app:argType="com.geeks.homework1month3.data.SerialModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBordFragment"
+        android:name="com.geeks.homework1month3.OnBordFragment"
+        android:label="fragment_on_bord"
+        tools:layout="@layout/fragment_on_bord" >
+
     </fragment>
 </navigation>
