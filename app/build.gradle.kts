@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -54,4 +55,10 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     //Glide
     implementation(libs.glide)
+
+    implementation("androidx.navigation:navigation-fragment:2.9.6")
+    implementation("androidx.navigation:navigation-ui:2.9.6")
+
+
+
 }

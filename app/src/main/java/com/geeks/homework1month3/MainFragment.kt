@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.geeks.homework1month3.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -28,13 +29,18 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loadData()
         adapter = SerialAdapter(listSerial, onClick = { model ->
-            Log.d("ololo", "onViewCreated: ${model.name}")
+            /*Log.d("ololo", "onViewCreated: ${model.name}")
             val bundle = Bundle ()
             bundle.putSerializable("key", model)
             val detailFragment = DetailFragment()
-            detailFragment.arguments = bundle
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, detailFragment).addToBackStack(null  )
-                .commit()
+            detailFragment.arguments = bundle*/
+
+
+
+                findNavController().navigate(
+                    MainFragmentDirections.actionMainFragmentToDetailFragment(model))
+            /*requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, detailFragment).addToBackStack(null  )
+                .commit()*/
         })
         binding.rvSerials.adapter = adapter
 
