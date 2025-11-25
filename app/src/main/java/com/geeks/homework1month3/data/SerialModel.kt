@@ -1,4 +1,4 @@
-package com.geeks.homework1month3
+package com.geeks.homework1month3.data
 
 import java.io.Serializable
 

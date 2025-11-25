@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.geeks.homework1month3.databinding.ItemSerialBinding
+import com.geeks.homework1month3.data.SerialModel
 
 class SerialAdapter(val serialList: ArrayList<SerialModel>, val onClick: (SerialModel)-> Unit):
     RecyclerView.Adapter< SerialAdapter.SerialViewHolder>() {
@@ -13,7 +14,9 @@ class SerialAdapter(val serialList: ArrayList<SerialModel>, val onClick: (Serial
         parent: ViewGroup,
         viewType: Int
     ): SerialViewHolder {
-        return SerialViewHolder(ItemSerialBinding.inflate(LayoutInflater
+        return SerialViewHolder(
+            ItemSerialBinding.inflate(
+                LayoutInflater
             .from(parent.context),parent,false))
     }
 
@@ -43,5 +46,3 @@ class SerialAdapter(val serialList: ArrayList<SerialModel>, val onClick: (Serial
 
       }
 }
-
-
