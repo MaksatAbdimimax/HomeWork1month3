@@ -9,6 +9,7 @@
     import androidx.navigation.navOptions
     import androidx.viewpager2.widget.ViewPager2
     import com.geeks.homework1month3.data.OnBoardModel
+    import com.geeks.homework1month3.data.local.Prefs
     import com.geeks.homework1month3.databinding.FragmentOnBordBinding
     import me.relex.circleindicator.CircleIndicator3
 
@@ -16,7 +17,7 @@
 
         private lateinit var binding: FragmentOnBordBinding
         private lateinit var adapter: OnBoardAdapter
-
+        private lateinit var pref : Prefs
 
         private lateinit var indicator: CircleIndicator3
 
@@ -25,6 +26,7 @@
             savedInstanceState: Bundle?
         ): View? {
             binding = FragmentOnBordBinding.inflate(inflater,container,false)
+            pref = Prefs(requireContext())
             return binding.root
         }
 
@@ -41,6 +43,7 @@
         }
 
         private fun onClickStart(){
+            pref.setOnBoardShown()
             findNavController().navigate(
                 R.id.mainFragment,
                 null,
