@@ -1,5 +1,6 @@
 package com.geeks.homework1month3
 
+import android.R.attr.onClick
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,41 +9,57 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.geeks.homework1month3.databinding.FragmentMainBinding
 import com.geeks.homework1month3.MainFragmentDirections
+import com.geeks.homework1month3.data.NotesModel
 import com.geeks.homework1month3.data.SerialModel
+import com.geeks.homework1month3.ui.App
 
 class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
+    private lateinit var adapter: NotesAdapter
 
-    private lateinit var adapter: SerialAdapter
+    /*private lateinit var adapter: SerialAdapter
 
-    private var listSerial = arrayListOf<SerialModel>()
+    private var listSerial = arrayListOf<SerialModel>()*/
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMainBinding.inflate(inflater,container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadData()
+        adapter = NotesAdapter(App.db.dao().getAllNotes(), :: onClick)
+        binding.rvNotes.adapter = adapter
+
+        binding.fbCreate.setOnClickListener {
+            findNavController().navigate(R.id.createFragment)
+        }
+    }
+
+    private fun onClick(notesModel: NotesModel){
+        val navigate = MainFragmentDirections.action(notesModel)
+        findNavController().navigate(navigate)
+    }
+        /*loadData()
         adapter = SerialAdapter(listSerial, onClick = { model ->
-            /*Log.d("ololo", "onViewCreated: ${model.name}")
+            *//*Log.d("ololo", "onViewCreated: ${model.name}")
             val bundle = Bundle ()
             bundle.putSerializable("key", model)
             val detailFragment = DetailFragment()
-            detailFragment.arguments = bundle*/
+            detailFragment.arguments = bundle*//*
 
 
 
             findNavController().navigate(
                 MainFragmentDirections.Companion.actionMainFragmentToDetailFragment(model)
             )
-            /*requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, detailFragment).addToBackStack(null  )
-                .commit()*/
+            *//*requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, detailFragment).addToBackStack(null  )
+                .commit()*//*
         })
         binding.rvSerials.adapter = adapter
 
@@ -120,5 +137,6 @@ class MainFragment : Fragment() {
                 name = "Chenobyl", episode = "S1.E5", date = "2019"
             )
         )
-    }
+    }*/
+
 }

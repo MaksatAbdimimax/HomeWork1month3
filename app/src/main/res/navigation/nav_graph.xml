@@ -2,8 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/onBordFragment">
+    android:id="@+id/nav_graph.xml">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -11,26 +10,31 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_detailFragment2"
-            app:destination="@id/detailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.geeks.homework1month3.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
-        <argument
-            android:name="model"
-            app:argType="com.geeks.homework1month3.data.SerialModel" />
+            android:id="@+id/action_mainFragment_to_createFragment"
+            app:destination="@id/createFragment" />
     </fragment>
     <fragment
         android:id="@+id/onBordFragment"
         android:name="com.geeks.homework1month3.OnBordFragment"
         android:label="fragment_on_bord"
         tools:layout="@layout/fragment_on_bord" >
+
+        <action
+            android:id="@+id/action_onBordFragment_to_mainFragment2"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createFragment"
+        android:name="com.geeks.homework1month3.create_note.CreateFragment"
+        android:label="fragment_create"
+        tools:layout="@layout/fragment_create" >
+        <argument
+            android:name="notes"
+            app:argType="com.geeks.homework1month3.data.NotesModel"
+            app:nullable="false"
+
+            />
+
 
     </fragment>
 </navigation>
