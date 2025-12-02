@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -62,5 +63,9 @@ dependencies {
     //oooo
     implementation("me.relex:circleindicator:2.1.6")
 
+    //Room
+    val room_version = "2.8.4"
 
+    implementation("androidx.room:room-runtime:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
 }

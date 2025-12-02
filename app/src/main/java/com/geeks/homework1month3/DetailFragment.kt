@@ -1,3 +1,4 @@
+/*
 package com.geeks.homework1month3
 
 import android.os.Bundle
@@ -42,4 +43,4 @@ class DetailFragment : Fragment() {
 }
 fun ImageView.loadImg(img: String){
     Glide.with(this).load(img).into(this)
-}
+}*/
